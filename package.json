@@ -1,0 +1,29 @@
+{
+  "name": "measurement",
+  "version": "0.0.1",
+  "description": "Measuring TTH from commit counts",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjmog/measurement.git"
+  },
+  "author": "Sam Morgan (s_morgan@me.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sjmog/measurement/issues"
+  },
+  "homepage": "https://github.com/sjmog/measurement#readme",
+  "dependencies": {
+    "brain.js": "^1.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.5",
+    "npm": "^5.8.0",
+    "octokit": "^0.10.4",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  }
+}
