@@ -1,5 +1,4 @@
 const cheerio = require('cheerio');
-const _ = require('lodash');
 
 const contributionsFrom = (body) => {
   const $ = cheerio.load(body);
