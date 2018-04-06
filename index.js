@@ -1,7 +1,14 @@
 const getCommitsFor = require('./src/getCommitsFor');
 
-// Select only data for the first two months of work (PC + W1-4)
-const NUMBER_OF_MONTHS_TO_COUNT = 2;
+// Select only data for the first sixty days of work (PC + W1 + W2)
+const NUMBER_OF_DAYS_TO_COUNT = 60;
 
-const user = { username: 'sjmog', startMonth: 5, startDay: 3 };
-getCommitsFor(user, NUMBER_OF_MONTHS_TO_COUNT).then((commits) => { console.log(commits) });
+// Schema for all users
+const user = { username: 'sjmog', startDate: '2017-05-03' };
+
+
+
+getCommitsFor(user, NUMBER_OF_DAYS_TO_COUNT)
+  .then((commits) => { 
+    console.log(commits) 
+  });

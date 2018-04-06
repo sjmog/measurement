@@ -1,16 +1,22 @@
 const cheerio = require('cheerio');
 const _ = require('lodash');
 
-async function contributionsFrom(body) {
+const contributionsFrom = (body) => {
   const $ = cheerio.load(body);
-  return $('rect').get().reduce((data, rect) => {
-    const value = $(rect).data('count');
-    const [year, month, day] = $(rect).data('date').split('-').map(
-      dateNum => parseInt(dateNum));
-    _.setWith(data, [year, month, day], value, Object);
+  const days = $('rect').get();
+  return allContributions(days, $);
+};
 
-    return data;
-  }, {});
+const allContributions = (days, $) => {
+  return days.reduce((contributions, day) => 
+                       [...contributions, contributionOn($(day))], []);
+};
+
+const contributionOn = ($day) => {
+  return [
+           $day.data('date'), 
+           $day.data('count')
+         ];
 };
 
 module.exports = contributionsFrom;

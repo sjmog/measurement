@@ -2,7 +2,7 @@ const request = require('request-promise');
 const contributionsFrom = require('./contributionsFrom');
 const commitsInPeriod = require('./commitsInPeriod');
 
-async function getCommitsFor(user, numberOfMonths) {
+async function getCommitsFor(user, numberOfDays) {
   const url = `https://www.github.com/${user.username}`;
   let commits;
 
@@ -11,7 +11,7 @@ async function getCommitsFor(user, numberOfMonths) {
     if (response.statusCode === 404) throw `User '${user}' not found`
 
     const contributions = await contributionsFrom(body);
-    commits = await commitsInPeriod(contributions, user.startMonth, user.startDay, numberOfMonths);
+    commits = await commitsInPeriod(contributions, user.startDate, numberOfDays);
   });
 
   return commits;
