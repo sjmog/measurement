@@ -4,8 +4,10 @@
   "description": "Measuring TTH from commit counts",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run generate && npm run train",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node generateData.js",
+    "train": "node train.js"
   },
   "repository": {
     "type": "git",
